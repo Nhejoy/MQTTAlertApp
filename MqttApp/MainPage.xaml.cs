@@ -31,12 +31,33 @@ namespace MqttApp
             try
             {
                 await _mqttService.ConnectAsync("broker.hivemq.com", 1883);
+                try
+                {
+                    await _mqttService.SubscribeAsync("Nhejoy/prueba/Csharp");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error de suscripción", ex.Message, "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error de conexión", ex.Message, "OK");
+            }
+        }
+
+        private async void DisconnectButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                await _mqttService.DisconnectAsync();
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", ex.Message, "OK");
             }
         }
+
 
         private void OnMessageReceived(string message)
         {
@@ -51,11 +72,11 @@ namespace MqttApp
         {
             try
             {
-                await _mqttService.SubscribeAsync("Nhejoy/prueba/Csharp"); // Cambia "mi/topico" al tópico deseado.
+                await _mqttService.SubscribeAsync("Nhejoy/prueba/Csharp");
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", ex.Message, "OK");
+                await DisplayAlert("Error de suscripción", ex.Message, "OK");
             }
         }
 

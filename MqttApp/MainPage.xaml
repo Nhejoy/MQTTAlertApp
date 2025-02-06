@@ -1,39 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MqttApp.MainPage">
+             x:Class="MqttApp.MainPage"
+             BackgroundColor="#7f2c2c">
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
             <Image
-                Source="dotnet_bot.png"
+                Source="g54.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+                SemanticProperties.Description="Figura" />
 
             <Label
-                Text="Hello, World!"
+                Text="App en desarrollo"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-
-            <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
-
 
             <Label x:Name="ConnectionStatusLabel" 
                Text="Estado: Desconectado" 
                HorizontalOptions="Center" 
                VerticalOptions="CenterAndExpand" />
 
-            <Button Text="Conectar" Clicked="ConnectButton_Clicked" />
-            <Button Text="Suscribirse" Clicked="SubscribeButton_Clicked" />
-            <Label x:Name="MessageContentLabel" Text="Esperando mensajes..." />
+            <Button Text="Conectar" Clicked="ConnectButton_Clicked"
+                    BackgroundColor="#cf9da3"/>
+            <Button Text="Suscribirse" Clicked="SubscribeButton_Clicked"
+                    BackgroundColor="#cf9da3"/>
+            <Button Text="Desconectar" Clicked="DisconnectButton_Clicked"
+                    BackgroundColor="#cf9da3"/>
+            <Label x:Name="MessageContentLabel" Text="Esperando mensajes..."/>
 
         </VerticalStackLayout>
     </ScrollView>
